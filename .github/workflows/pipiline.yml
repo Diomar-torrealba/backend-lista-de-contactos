@@ -1,0 +1,21 @@
+name: deployment pipeline
+  on: 
+    push:
+      branches:
+        - main
+
+  jobs:
+   simple_deployment_pipelane:
+    if: ${{ github.event_name == 'push' }}
+    runs-on: ubuntu-20.04
+    steps:
+        - uses: actions/checkout@v4
+        - uses: actions/setup-node@v4
+          with: 
+            node-version: '20'
+        - name: instala las dependencies
+          run: npm install
+        - name : chekear el esetilo del codigo
+          run: npm run lint
+        - name: test
+          run: npm run test  
