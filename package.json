@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose --runInBand --forceExit",
+    "eslint":"eslint'./**/*.js'",
     "dev": "nodemon index.js",
     "create-tables": "node ./db/createTables.js"
   },
